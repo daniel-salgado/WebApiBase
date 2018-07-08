@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System.Web.Http.Results;
 using WebApiBase.Controllers;
 using WebApiBase.Core;
 using WebApiBase.Core.Dtos;
 using WebApiBase.Core.Repositories;
-using System.Web.Http.Results;
 
 namespace WebApiBase.Tests
 {
