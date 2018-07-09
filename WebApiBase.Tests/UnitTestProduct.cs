@@ -130,8 +130,7 @@ namespace WebApiBase.Tests
 
             var result = _controller.DeleteProduct(product.ProductID);
 
-            //Assert.IsInstanceOfType(result, typeof(OkResult));
-            Assert.IsInstanceOfType(result, typeof(NotFoundResult));
+            Assert.IsInstanceOfType(result, typeof(OkResult));
 
         }
 
@@ -139,16 +138,12 @@ namespace WebApiBase.Tests
         public void Delete_Product_ShouldReturnNotFound()
         {
 
-            var product = new Product();
-
-            _mockRepository.Setup(p => p.GetProductById(product.ProductID)).Returns(product);
-
-            var result = _controller.DeleteProduct(product.ProductID);
+            var result = _controller.DeleteProduct(0);
 
             Assert.IsInstanceOfType(result, typeof(NotFoundResult));
 
         }
 
-
     }
+
 }

@@ -19,8 +19,7 @@ namespace WebApiBase.Controllers
 
         public ProductsController()
         {
-            context = new ApplicationDbContext();
-            unitOfWork = new UnitOfWork(context);
+            unitOfWork = new UnitOfWork(new ApplicationDbContext());
         }
 
         public ProductsController(IUnitOfWork _unitOfWork)
@@ -168,8 +167,14 @@ namespace WebApiBase.Controllers
         public IHttpActionResult DeleteProduct(int id)
         {
 
-            if (!unitOfWork.Products.Exists(id))
+            /*if (!unitOfWork.Products.Exists(id))
+                return NotFound();*/
+
+            var productToDelete = unitOfWork?.Products.GetProductById(id);
+
+            if (productToDelete == null)
                 return NotFound();
+
 
             try
             {
